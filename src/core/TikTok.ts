@@ -136,7 +136,7 @@ export class TikTokScraper extends EventEmitter {
         method = 'POST',
     }: TikTokConstructor) {
         super();
-        this.mainHost = 'https://m.tiktok.com/';
+        this.mainHost = process.env.TIKTOK_MAIN_HOST;
         this.userAgent = userAgent;
         this.download = download;
         this.filepath = process.env.SCRAPING_FROM_DOCKER ? '/usr/app/files' : filepath || '';
