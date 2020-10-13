@@ -50,8 +50,7 @@
         "docker:build": "tsc",
         "format": "prettier --config ./.prettierrc.js --write './src/**/*.ts'",
         "lint": "eslint ./src/**/*.ts",
-        "test": "eslint ./src/**/*.ts && jest --coverage --verbose",
-        "postinstall": "tsc --outDir ./build"
+        "test": "eslint ./src/**/*.ts && jest --coverage --verbose"
     },
     "jest": {
         "verbose": true,
