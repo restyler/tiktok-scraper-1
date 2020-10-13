@@ -51,7 +51,7 @@
         "format": "prettier --config ./.prettierrc.js --write './src/**/*.ts'",
         "lint": "eslint ./src/**/*.ts",
         "test": "eslint ./src/**/*.ts && jest --coverage --verbose",
-        "prepare": "tsc"
+        "postinstall": "tsc --outDir ./build"
     },
     "jest": {
         "verbose": true,
