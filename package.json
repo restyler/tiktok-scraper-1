@@ -10,7 +10,6 @@
     "files": [
         "build"
     ],
-    "prepare": "npm run build",
     "dependencies": {
         "archiver": "^3.1.1",
         "async": "^3.1.0",
@@ -51,7 +50,8 @@
         "docker:build": "tsc",
         "format": "prettier --config ./.prettierrc.js --write './src/**/*.ts'",
         "lint": "eslint ./src/**/*.ts",
-        "test": "eslint ./src/**/*.ts && jest --coverage --verbose"
+        "test": "eslint ./src/**/*.ts && jest --coverage --verbose",
+        "prepare": "tsc"
     },
     "jest": {
         "verbose": true,
