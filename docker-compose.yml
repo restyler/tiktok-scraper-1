@@ -1,0 +1,7 @@
+version: '3.4'
+
+services:
+    tiktokscraper-delete-it:
+        image: tiktok-scraper-1
+        build: .
+        entrypoint: sleep 56000
