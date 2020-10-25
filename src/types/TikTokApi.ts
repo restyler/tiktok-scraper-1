@@ -1,20 +1,3 @@
-export interface UserData {
-    secUid: string;
-    userId: string;
-    isSecret: boolean;
-    uniqueId: string;
-    nickName: string;
-    signature: string;
-    covers: string[];
-    coversMedium: string[];
-    following: number;
-    fans: number;
-    heart: number;
-    video: number;
-    verified: boolean;
-    digg: number;
-}
-
 export interface ItemInfos {
     id: string;
     text: string;
@@ -107,13 +90,6 @@ export interface ItemListData {
     };
 }
 
-export interface ApiResponse<Key extends string, I> {
-    statusCode: number;
-    body: {
-        [key in Key]: I;
-    };
-}
-
 export interface RequestQuery {
     id: string;
     secUid: string;
@@ -137,7 +113,6 @@ export interface VideoProps {
 /**
  * New API
  */
-
 export interface ItemListDataAPIV2 {
     statusCode: number;
     items: ItemAPIV2[];
@@ -221,4 +196,109 @@ export interface ItemAPIV2 {
     itemCommentStatus: number;
     showNotPass: boolean;
     vl1: boolean;
+}
+
+/**
+ * __
+ */
+export interface TikTokMetadata {
+    statusCode: number;
+    userInfo: UserMetadata;
+    challengeInfo: HashtagMetadata;
+    musicInfo: MusicMetadata;
+}
+
+export interface MusicMetadata {
+    music: {
+        id: string;
+        title: string;
+        playUrl: string;
+        coverThumb: string;
+        coverMedium: string;
+        coverLarge: string;
+        authorName: string;
+        original: boolean;
+        playToken: string;
+        keyToken: string;
+        audioURLWithCookie: boolean;
+        private: boolean;
+        duration: number;
+        album: string;
+    };
+    author: {
+        id: string;
+        uniqueId: string;
+        nickname: string;
+        avatarThumb: string;
+        avatarMedium: string;
+        avatarLarger: string;
+        signature: string;
+        verified: boolean;
+        secUid: string;
+        secret: boolean;
+        ftc: boolean;
+        relation: number;
+        openFavorite: boolean;
+        commentSetting: number;
+        duetSetting: number;
+        stitchSetting: number;
+        privateAccount: boolean;
+    };
+    stats: {
+        videoCount: number;
+    };
+    shareMeta: {
+        title: string;
+        desc: string;
+    };
+}
+
+export interface UserMetadata {
+    user: {
+        id: string;
+        uniqueId: string;
+        nickname: string;
+        avatarThumb: string;
+        avatarMedium: string;
+        avatarLarger: string;
+        signature: string;
+        verified: boolean;
+        secUid: string;
+        secret: boolean;
+        ftc: boolean;
+        relation: number;
+        openFavorite: boolean;
+        commentSetting: number;
+        duetSetting: number;
+        stitchSetting: number;
+        privateAccount: boolean;
+    };
+    stats: {
+        followingCount: number;
+        followerCount: number;
+        heartCount: number;
+        videoCount: number;
+        diggCount: number;
+        heart: number;
+    };
+    shareMeta: {
+        title: string;
+        desc: string;
+    };
+}
+
+export interface HashtagMetadata {
+    challenge: {
+        id: string;
+        title: string;
+        desc: string;
+        profileThumb: string;
+        profileMedium: string;
+        profileLarger: string;
+        coverThumb: string;
+        coverMedium: string;
+        coverLarger: string;
+        isCommerce: boolean;
+    };
+    stats: { videoCount: number; viewCount: number };
 }
